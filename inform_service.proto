@@ -7,7 +7,7 @@ option go_package = ".;proto";
 package proto;
 
 service Informer {
-    rpc SaveStatistic(Statistic) returns (SaveStatisticResponse) {}
+    rpc SaveStatistic(SaveStatisticRequest) returns (SaveStatisticResponse) {}
     rpc GetStatistic(GetStatisticRequest) returns (Statistic) {}
 }
 
@@ -16,6 +16,16 @@ message SaveStatisticResponse {
 }
 
 message GetStatisticRequest {}
+
+message SaveStatisticRequest {
+    NodeAuthData node_auth_data = 1;
+    Statistic statistic = 2;
+}
+
+message GetStatisticResponse {
+    NodeAuthData node_auth_data = 1;
+    repeated Statistic statistic = 2;
+}
 
 message Statistic {
     // every 3600 seconds
@@ -34,6 +44,13 @@ message Statistic {
     CPUState cpu_state = 11;
     NodeState node_state = 12;
     NodePerformance node_performance = 13;
+
+    
+}
+
+message NodeAuthData {
+    string ticker = 1;
+    string uuid = 2;
 }
 
 // Node basic data - server, rare (every 3600 seconds), basic perm

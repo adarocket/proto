@@ -2,7 +2,7 @@ gen:
 	protoc *.proto --go_out=plugins=grpc:.
 
 clean:
-	rm pb/*.go 
+	rm *.go 
 
 
 .PHONY: gen clean
