@@ -8,24 +8,34 @@ package proto;
 
 service Informer {
     rpc SaveStatistic(SaveStatisticRequest) returns (SaveStatisticResponse) {}
-    rpc GetStatistic(GetStatisticRequest) returns (Statistic) {}
-}
 
-message SaveStatisticResponse {
-    string status = 1;
+    rpc GetNodeList(GetNodeListRequest) returns (GetNodeListResponse) {}
+    rpc GetStatistic(GetStatisticRequest) returns (SaveStatisticRequest) {}
 }
-
-message GetStatisticRequest {}
 
 message SaveStatisticRequest {
     NodeAuthData node_auth_data = 1;
     Statistic statistic = 2;
 }
 
-message GetStatisticResponse {
-    NodeAuthData node_auth_data = 1;
-    repeated Statistic statistic = 2;
+message SaveStatisticResponse {
+    string status = 1;
 }
+
+message GetNodeListRequest {}
+
+message GetNodeListResponse {
+    repeated NodeAuthData node_auth_data = 1;
+}
+
+message GetStatisticRequest {
+    string uuid = 1;
+}
+
+// message GetStatisticResponse {
+//     NodeAuthData node_auth_data = 1;
+//     repeated Statistic statistic = 2;
+// }
 
 message Statistic {
     // every 3600 seconds
@@ -44,8 +54,6 @@ message Statistic {
     CPUState cpu_state = 11;
     NodeState node_state = 12;
     NodePerformance node_performance = 13;
-
-    
 }
 
 message NodeAuthData {
