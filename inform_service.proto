@@ -59,6 +59,7 @@ message Statistic {
 message NodeAuthData {
     string ticker = 1;
     string uuid = 2;
+    string status = 3;
 }
 
 // Node basic data - server, rare (every 3600 seconds), basic perm
@@ -83,6 +84,7 @@ message Online {
     int64 pings = 2;
     bool  node_active = 3;
     int64 node_active_pings = 4;
+    bool  server_active = 5;
 }
 
 // Memory state - server, frequent (every 10 seconds), server_technical perm
