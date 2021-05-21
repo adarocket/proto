@@ -3,7 +3,12 @@ syntax = "proto3";
 // option go_package = "adarocket/informerProto";
 // package informerProto;
 
-option go_package = ".;proto";
+// option go_package = "adarocket/proto";
+// option go_package = ".;proto";
+// option go_package = "./";
+option go_package = "/proto";
+
+
 package proto;
 
 message LoginRequest {

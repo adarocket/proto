@@ -3,7 +3,9 @@ syntax = "proto3";
 // option go_package = "adarocket/informerProto";
 // package informerProto;
 
-option go_package = ".;proto";
+// option go_package = "adarocket/proto";
+// option go_package = ".;proto";
+option go_package = "/proto";
 package proto;
 
 service Informer {
@@ -39,21 +41,31 @@ message GetStatisticRequest {
 
 message Statistic {
     // every 3600 seconds
+    // Common
     NodeBasicData  node_basic_data = 1;
     ServerBasicData server_basic_data = 2;
-    Epoch epoch = 3;
-    KESData kes_data = 4;
-    Blocks blocks = 5;
-    Updates updates = 6;
-    Security security = 7;
+    Updates updates = 3;
+    Security security = 4;
+
+    // Cardano blockchain
+    Epoch epoch = 5;
+    KESData kes_data = 6;
+    Blocks blocks = 7;
     StakeInfo stake_info = 8;
 
     // every 10 seconds
+    // Common
     Online online = 9;
     MemoryState memory_state = 10;
     CPUState cpu_state = 11;
+
+    // Cardano blockchain
     NodeState node_state = 12;
     NodePerformance node_performance = 13;
+
+    // Chia blockchain
+    ChiaNodeFarming chia_node_farming = 14;
+
 }
 
 message NodeAuthData {
@@ -167,3 +179,20 @@ message StakeInfo {
     int64 active_stake = 2;
     int64 pledge = 3;
 }
+
+// Chia node farming -  node, rare (every 3600 seconds), node_financial perm
+message ChiaNodeFarming {
+    string farming_status = 1;
+    float total_chia_farmed = 2;
+    float user_transaction_fees = 3;
+    float block_rewards = 4;
+
+    uint64 last_height_farmed = 5;
+    uint64 plot_count = 6;
+
+    uint64 total_size_of_plots = 7;
+    uint64 estimated_network_space = 8;
+
+    string expected_time_to_win = 9;
+}
+
