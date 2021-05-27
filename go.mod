@@ -1,4 +1,4 @@
-module adarocket/proto
+module github.com/adarocket/proto
 
 go 1.15
 
