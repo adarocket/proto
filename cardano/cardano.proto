@@ -1,0 +1,92 @@
+syntax = "proto3";
+
+option go_package = "/proto-gen/cardano";
+// package proto;
+
+// import "github.com/adarocket/proto/model/common.proto";
+import "common/common.proto";
+
+service Cardano {
+    rpc SaveStatistic(SaveStatisticRequest) returns (SaveStatisticResponse) {}
+    rpc GetStatistic(GetStatisticRequest) returns (SaveStatisticRequest) {}
+}
+
+message SaveStatisticRequest {
+    common.NodeAuthData node_auth_data = 1;
+    Statistic statistic = 2;
+}
+
+message SaveStatisticResponse {
+    string status = 1;
+}
+
+message GetStatisticRequest {
+    string uuid = 1;
+}
+
+message Statistic {
+    // every 3600 seconds
+    // Common
+    common.NodeBasicData  node_basic_data = 1;
+    common.ServerBasicData server_basic_data = 2;
+    common.Updates updates = 3;
+    common.Security security = 4;
+
+    // Cardano blockchain
+    Epoch epoch = 5;
+    KESData kes_data = 6;
+    Blocks blocks = 7;
+    StakeInfo stake_info = 8;
+
+    // every 10 seconds
+    // Common
+    common.Online online = 9;
+    common.MemoryState memory_state = 10;
+    common.CPUState cpu_state = 11;
+
+    // Cardano blockchain
+    NodeState node_state = 12;
+    NodePerformance node_performance = 13;
+
+}
+
+// Epoch - node, rare (every 3600 seconds), node_technical perm
+message Epoch  {
+    int64 epoch_number = 1;
+}
+
+// KES data - node, rare (every 3600 seconds), node_technical perm
+message KESData {
+    int64 kes_current = 1;
+    int64 kes_remaining = 2;
+    string kes_exp_date = 3; // ++
+}
+
+// Blocks - node, rare (every 3600 seconds), node_financial perm
+message Blocks {
+    int64 block_leader = 1; // ++ если увеличился, то нужно оповестить 
+    int64 block_adopted = 2; // ++
+    int64 block_invalid = 3;
+}
+
+// Stake info -  node, rare (every 3600 seconds), node_financial perm
+message StakeInfo {
+    // ++ 
+    // отслеживать изменение 
+    int64 live_stake = 1;
+    int64 active_stake = 2;
+    int64 pledge = 3;
+}
+
+// Node state - node, frequent (every 10 seconds), node_technical perm
+message NodeState {
+    int64 tip_diff = 1;
+    float density = 2;
+}
+
+// Node performance - node, frequent (every 10 seconds), node_technical perm
+message NodePerformance {
+    int64 processed_tx = 1;
+    int64 peers_in = 2;
+    int64 peers_out = 3;
+}
