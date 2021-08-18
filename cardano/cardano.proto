@@ -1,7 +1,7 @@
 syntax = "proto3";
 
 option go_package = "/proto-gen/cardano";
-// package proto;
+package cardano;
 
 // import "github.com/adarocket/proto/model/common.proto";
 import "common/common.proto";
@@ -12,7 +12,7 @@ service Cardano {
 }
 
 message SaveStatisticRequest {
-    common.NodeAuthData node_auth_data = 1;
+    Common.NodeAuthData node_auth_data = 1;
     Statistic statistic = 2;
 }
 
@@ -27,10 +27,10 @@ message GetStatisticRequest {
 message Statistic {
     // every 3600 seconds
     // Common
-    common.NodeBasicData  node_basic_data = 1;
-    common.ServerBasicData server_basic_data = 2;
-    common.Updates updates = 3;
-    common.Security security = 4;
+    Common.NodeBasicData  node_basic_data = 1;
+    Common.ServerBasicData server_basic_data = 2;
+    Common.Updates updates = 3;
+    Common.Security security = 4;
 
     // Cardano blockchain
     Epoch epoch = 5;
@@ -40,9 +40,9 @@ message Statistic {
 
     // every 10 seconds
     // Common
-    common.Online online = 9;
-    common.MemoryState memory_state = 10;
-    common.CPUState cpu_state = 11;
+    Common.Online online = 9;
+    Common.MemoryState memory_state = 10;
+    Common.CPUState cpu_state = 11;
 
     // Cardano blockchain
     NodeState node_state = 12;

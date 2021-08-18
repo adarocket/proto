@@ -32,7 +32,7 @@ func NewChiaClient(cc grpc.ClientConnInterface) ChiaClient {
 
 func (c *chiaClient) SaveStatistic(ctx context.Context, in *SaveStatisticRequest, opts ...grpc.CallOption) (*SaveStatisticResponse, error) {
 	out := new(SaveStatisticResponse)
-	err := c.cc.Invoke(ctx, "/Chia/SaveStatistic", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/chia.Chia/SaveStatistic", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -41,7 +41,7 @@ func (c *chiaClient) SaveStatistic(ctx context.Context, in *SaveStatisticRequest
 
 func (c *chiaClient) GetStatistic(ctx context.Context, in *GetStatisticRequest, opts ...grpc.CallOption) (*SaveStatisticRequest, error) {
 	out := new(SaveStatisticRequest)
-	err := c.cc.Invoke(ctx, "/Chia/GetStatistic", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/chia.Chia/GetStatistic", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -90,7 +90,7 @@ func _Chia_SaveStatistic_Handler(srv interface{}, ctx context.Context, dec func(
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/Chia/SaveStatistic",
+		FullMethod: "/chia.Chia/SaveStatistic",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(ChiaServer).SaveStatistic(ctx, req.(*SaveStatisticRequest))
@@ -108,7 +108,7 @@ func _Chia_GetStatistic_Handler(srv interface{}, ctx context.Context, dec func(i
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/Chia/GetStatistic",
+		FullMethod: "/chia.Chia/GetStatistic",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(ChiaServer).GetStatistic(ctx, req.(*GetStatisticRequest))
@@ -120,7 +120,7 @@ func _Chia_GetStatistic_Handler(srv interface{}, ctx context.Context, dec func(i
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var Chia_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "Chia",
+	ServiceName: "chia.Chia",
 	HandlerType: (*ChiaServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{

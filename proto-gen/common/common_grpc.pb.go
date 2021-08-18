@@ -31,7 +31,7 @@ func NewControllerClient(cc grpc.ClientConnInterface) ControllerClient {
 
 func (c *controllerClient) GetNodeList(ctx context.Context, in *GetNodeListRequest, opts ...grpc.CallOption) (*GetNodeListResponse, error) {
 	out := new(GetNodeListResponse)
-	err := c.cc.Invoke(ctx, "/common.Controller/GetNodeList", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/Common.Controller/GetNodeList", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -76,7 +76,7 @@ func _Controller_GetNodeList_Handler(srv interface{}, ctx context.Context, dec f
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/common.Controller/GetNodeList",
+		FullMethod: "/Common.Controller/GetNodeList",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(ControllerServer).GetNodeList(ctx, req.(*GetNodeListRequest))
@@ -88,7 +88,7 @@ func _Controller_GetNodeList_Handler(srv interface{}, ctx context.Context, dec f
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var Controller_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "common.Controller",
+	ServiceName: "Common.Controller",
 	HandlerType: (*ControllerServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{

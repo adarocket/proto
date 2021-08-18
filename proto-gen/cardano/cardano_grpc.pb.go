@@ -32,7 +32,7 @@ func NewCardanoClient(cc grpc.ClientConnInterface) CardanoClient {
 
 func (c *cardanoClient) SaveStatistic(ctx context.Context, in *SaveStatisticRequest, opts ...grpc.CallOption) (*SaveStatisticResponse, error) {
 	out := new(SaveStatisticResponse)
-	err := c.cc.Invoke(ctx, "/Cardano/SaveStatistic", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/cardano.Cardano/SaveStatistic", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -41,7 +41,7 @@ func (c *cardanoClient) SaveStatistic(ctx context.Context, in *SaveStatisticRequ
 
 func (c *cardanoClient) GetStatistic(ctx context.Context, in *GetStatisticRequest, opts ...grpc.CallOption) (*SaveStatisticRequest, error) {
 	out := new(SaveStatisticRequest)
-	err := c.cc.Invoke(ctx, "/Cardano/GetStatistic", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/cardano.Cardano/GetStatistic", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -90,7 +90,7 @@ func _Cardano_SaveStatistic_Handler(srv interface{}, ctx context.Context, dec fu
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/Cardano/SaveStatistic",
+		FullMethod: "/cardano.Cardano/SaveStatistic",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(CardanoServer).SaveStatistic(ctx, req.(*SaveStatisticRequest))
@@ -108,7 +108,7 @@ func _Cardano_GetStatistic_Handler(srv interface{}, ctx context.Context, dec fun
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/Cardano/GetStatistic",
+		FullMethod: "/cardano.Cardano/GetStatistic",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(CardanoServer).GetStatistic(ctx, req.(*GetStatisticRequest))
@@ -120,7 +120,7 @@ func _Cardano_GetStatistic_Handler(srv interface{}, ctx context.Context, dec fun
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var Cardano_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "Cardano",
+	ServiceName: "cardano.Cardano",
 	HandlerType: (*CardanoServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{

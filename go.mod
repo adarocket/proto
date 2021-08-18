@@ -1,6 +1,6 @@
 module github.com/adarocket/proto
 
-go 1.15
+go 1.16
 
 require (
 	google.golang.org/grpc v1.37.1
