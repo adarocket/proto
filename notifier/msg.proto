@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option go_package = "/notifier";
+package notifier;
+
+service NotifierConnect {
+  rpc SendNotification(SendNotifier) returns (ResponseNotifier) {}
+}
+
+message SendNotifier {
+  string TypeMessage = 1;
+  string Value = 2;
+  string Frequency = 3;
+}
+
+message ResponseNotifier {
+  string message = 1;
+}
