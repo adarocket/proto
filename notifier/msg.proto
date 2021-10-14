@@ -8,9 +8,10 @@ service NotifierConnect {
 }
 
 message SendNotifier {
-  string TypeMessage = 1;
-  string Value = 2;
-  string Frequency = 3;
+  string TextMessage = 1;
+  string CurrentVal = 2;
+  string From = 3;
+  string To = 4;
 }
 
 message ResponseNotifier {
