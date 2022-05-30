@@ -12,6 +12,10 @@ dependencies:
   flutter:
     sdk: flutter
 
+  path: ^1.8.1
+  grpc: ^3.0.2
+  protobuf: ^2.0.1
+
 
 dev_dependencies:
   flutter_test:
