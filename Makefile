@@ -1,3 +1,8 @@
+gen-flutter:
+	protoc --dart_out=grpc:lib common/common.proto
+	protoc --dart_out=grpc:lib auth/auth_service.proto
+	protoc --dart_out=grpc:lib cardano/cardano.proto
+
 gen:
 	protoc *.proto --go_out=plugins=grpc:.
 
