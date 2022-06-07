@@ -33,6 +33,9 @@ message NodeAuthData {
     string status = 3;
 
     string blockchain = 4;
+
+    string type = 5;
+    string name = 6;
 }
 
 // Node basic data - server, rare (every 3600 seconds), basic perm
