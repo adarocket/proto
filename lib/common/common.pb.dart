@@ -86,6 +86,8 @@ class NodeAuthData extends $pb.GeneratedMessage {
     ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'uuid')
     ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'status')
     ..aOS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'blockchain')
+    ..aOS(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'type')
+    ..aOS(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'name')
     ..hasRequiredFields = false
   ;
 
@@ -95,6 +97,8 @@ class NodeAuthData extends $pb.GeneratedMessage {
     $core.String? uuid,
     $core.String? status,
     $core.String? blockchain,
+    $core.String? type,
+    $core.String? name,
   }) {
     final _result = create();
     if (ticker != null) {
@@ -108,6 +112,12 @@ class NodeAuthData extends $pb.GeneratedMessage {
     }
     if (blockchain != null) {
       _result.blockchain = blockchain;
+    }
+    if (type != null) {
+      _result.type = type;
+    }
+    if (name != null) {
+      _result.name = name;
     }
     return _result;
   }
@@ -167,6 +177,24 @@ class NodeAuthData extends $pb.GeneratedMessage {
   $core.bool hasBlockchain() => $_has(3);
   @$pb.TagNumber(4)
   void clearBlockchain() => clearField(4);
+
+  @$pb.TagNumber(5)
+  $core.String get type => $_getSZ(4);
+  @$pb.TagNumber(5)
+  set type($core.String v) { $_setString(4, v); }
+  @$pb.TagNumber(5)
+  $core.bool hasType() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearType() => clearField(5);
+
+  @$pb.TagNumber(6)
+  $core.String get name => $_getSZ(5);
+  @$pb.TagNumber(6)
+  set name($core.String v) { $_setString(5, v); }
+  @$pb.TagNumber(6)
+  $core.bool hasName() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearName() => clearField(6);
 }
 
 class NodeBasicData extends $pb.GeneratedMessage {

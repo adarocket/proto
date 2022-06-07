@@ -33,11 +33,13 @@ const NodeAuthData$json = const {
     const {'1': 'uuid', '3': 2, '4': 1, '5': 9, '10': 'uuid'},
     const {'1': 'status', '3': 3, '4': 1, '5': 9, '10': 'status'},
     const {'1': 'blockchain', '3': 4, '4': 1, '5': 9, '10': 'blockchain'},
+    const {'1': 'type', '3': 5, '4': 1, '5': 9, '10': 'type'},
+    const {'1': 'name', '3': 6, '4': 1, '5': 9, '10': 'name'},
   ],
 };
 
 /// Descriptor for `NodeAuthData`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List nodeAuthDataDescriptor = $convert.base64Decode('CgxOb2RlQXV0aERhdGESFgoGdGlja2VyGAEgASgJUgZ0aWNrZXISEgoEdXVpZBgCIAEoCVIEdXVpZBIWCgZzdGF0dXMYAyABKAlSBnN0YXR1cxIeCgpibG9ja2NoYWluGAQgASgJUgpibG9ja2NoYWlu');
+final $typed_data.Uint8List nodeAuthDataDescriptor = $convert.base64Decode('CgxOb2RlQXV0aERhdGESFgoGdGlja2VyGAEgASgJUgZ0aWNrZXISEgoEdXVpZBgCIAEoCVIEdXVpZBIWCgZzdGF0dXMYAyABKAlSBnN0YXR1cxIeCgpibG9ja2NoYWluGAQgASgJUgpibG9ja2NoYWluEhIKBHR5cGUYBSABKAlSBHR5cGUSEgoEbmFtZRgGIAEoCVIEbmFtZQ==');
 @$core.Deprecated('Use nodeBasicDataDescriptor instead')
 const NodeBasicData$json = const {
   '1': 'NodeBasicData',
